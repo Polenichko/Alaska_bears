@@ -1,0 +1,206 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.0, pytest-6.0.1, py-1.9.0, pluggy-0.13.1
+rootdir: /home/anatiloy/PycharmProjects/Alaska_bears
+plugins: Faker-4.1.2
+collected 20 items
+
+tests_script.py ....F.F........FF.F.                                     [100%]
+
+=================================== FAILURES ===================================
+______________________ test_create[GUMMY-mihail-17.5-200] ______________________
+
+type_b = 'GUMMY', name = 'mihail', age = 17.5, res = '200'
+
+    @pytest.mark.parametrize("type_b , name, age, res",
+                             [
+                                 ('POLAR', 'mihail', 17.5, '200'),
+                                 ('BROWN', 'mihail', 17.5, '200'),
+                                 ('BLACK', 'mihail', 17.5, '200'),
+                                 ('GUMMY', 'mihail', 17.5, '200'),
+                                 ('', 'mihail', 17.5, '500'),
+                                 ('BROWN', '', 17.5, '500'),
+                                 ('BLACK', 'mihail', '', '500'),
+                                 ('BLACK', 'mihail', 0, '200'),
+                                 ('black', 'mihail', 10, '500'),
+                                 ('white', 'mihail', 10, '500'),
+                                 (0, 'mihail', 10, '500'),
+                                 ('BLACK', 'm' * 100, 10, '200'),
+                                 ('BLACK', 'm' * 1000, 10, '200'),
+                                 ('BLACK', 'mihail', -0.1, '200'),
+                                 ('BLACK', 'mihail', 200, '500'),
+    
+                             ]
+                             )
+    def test_create(type_b, name, age, res):
+        l_res = create_new(type_b, name, age)
+        n_res = l_res[3]
+        if age != '' and age < 0:
+            age = 0
+    
+        assert res in n_res
+        if n_res != '500':
+>           assert type_b in l_res[0]
+E           AssertionError: assert 'GUMMY' in 'None'
+
+tests_script.py:119: AssertionError
+----------------------------- Captured stdout call -----------------------------
+id new objeckt:  849 the collected parameters:  {'bear_type': 'GUMMY', 'bear_name': 'mihail', 'bear_age': 17.5} status_code:  200
+parametr_ecxpect:  GUMMY  << == >> parametr_fuct: None
+parametr_ecxpect:  MIHAIL  << == >> parametr_fuct: None
+parametr_ecxpect:  17.5  << == >> parametr_fuct: None
+parametrs fron testing objekt : ['None', 'None', 'None', '200']
+_________________________ test_create[BROWN--17.5-500] _________________________
+
+type_b = 'BROWN', name = '', age = 17.5, res = '500'
+
+    @pytest.mark.parametrize("type_b , name, age, res",
+                             [
+                                 ('POLAR', 'mihail', 17.5, '200'),
+                                 ('BROWN', 'mihail', 17.5, '200'),
+                                 ('BLACK', 'mihail', 17.5, '200'),
+                                 ('GUMMY', 'mihail', 17.5, '200'),
+                                 ('', 'mihail', 17.5, '500'),
+                                 ('BROWN', '', 17.5, '500'),
+                                 ('BLACK', 'mihail', '', '500'),
+                                 ('BLACK', 'mihail', 0, '200'),
+                                 ('black', 'mihail', 10, '500'),
+                                 ('white', 'mihail', 10, '500'),
+                                 (0, 'mihail', 10, '500'),
+                                 ('BLACK', 'm' * 100, 10, '200'),
+                                 ('BLACK', 'm' * 1000, 10, '200'),
+                                 ('BLACK', 'mihail', -0.1, '200'),
+                                 ('BLACK', 'mihail', 200, '500'),
+    
+                             ]
+                             )
+    def test_create(type_b, name, age, res):
+        l_res = create_new(type_b, name, age)
+        n_res = l_res[3]
+        if age != '' and age < 0:
+            age = 0
+    
+>       assert res in n_res
+E       AssertionError: assert '500' in '200'
+
+tests_script.py:117: AssertionError
+----------------------------- Captured stdout call -----------------------------
+id new objeckt:  850 the collected parameters:  {'bear_type': 'BROWN', 'bear_name': '', 'bear_age': 17.5} status_code:  200
+parametr_ecxpect:  BROWN  << == >> parametr_fuct: BROWN
+parametr_ecxpect:    << == >> parametr_fuct: 
+parametr_ecxpect:  17.5  << == >> parametr_fuct: 17.5
+parametrs fron testing objekt : ['BROWN', '', 17.5, '200']
+______________________ test_create[BLACK-mihail-200-500] _______________________
+
+type_b = 'BLACK', name = 'mihail', age = 200, res = '500'
+
+    @pytest.mark.parametrize("type_b , name, age, res",
+                             [
+                                 ('POLAR', 'mihail', 17.5, '200'),
+                                 ('BROWN', 'mihail', 17.5, '200'),
+                                 ('BLACK', 'mihail', 17.5, '200'),
+                                 ('GUMMY', 'mihail', 17.5, '200'),
+                                 ('', 'mihail', 17.5, '500'),
+                                 ('BROWN', '', 17.5, '500'),
+                                 ('BLACK', 'mihail', '', '500'),
+                                 ('BLACK', 'mihail', 0, '200'),
+                                 ('black', 'mihail', 10, '500'),
+                                 ('white', 'mihail', 10, '500'),
+                                 (0, 'mihail', 10, '500'),
+                                 ('BLACK', 'm' * 100, 10, '200'),
+                                 ('BLACK', 'm' * 1000, 10, '200'),
+                                 ('BLACK', 'mihail', -0.1, '200'),
+                                 ('BLACK', 'mihail', 200, '500'),
+    
+                             ]
+                             )
+    def test_create(type_b, name, age, res):
+        l_res = create_new(type_b, name, age)
+        n_res = l_res[3]
+        if age != '' and age < 0:
+            age = 0
+    
+>       assert res in n_res
+E       AssertionError: assert '500' in '200'
+
+tests_script.py:117: AssertionError
+----------------------------- Captured stdout call -----------------------------
+id new objeckt:  855 the collected parameters:  {'bear_type': 'BLACK', 'bear_name': 'mihail', 'bear_age': 200} status_code:  200
+parametr_ecxpect:  BLACK  << == >> parametr_fuct: BLACK
+parametr_ecxpect:  MIHAIL  << == >> parametr_fuct: MIHAIL
+parametr_ecxpect:  200  << == >> parametr_fuct: 0.0
+parametrs fron testing objekt : ['BLACK', 'MIHAIL', 0.0, '200']
+______________________ test_update[BROWN-mihail-17.5-200] ______________________
+
+type_b = 'BROWN', name = 'mihail', age = 17.5, res = '200'
+
+    @pytest.mark.parametrize("type_b , name, age, res",
+                             [
+                                 ('BROWN', 'mihail', 17.5, '200'),
+                                 ('POLAR', 'Change_Name', 17.5, '200'),
+                                 ('POLAR', 'mihail', 10, '200'),
+                             ]
+                             )
+    def test_update(type_b, name, age, res):
+        l_res = update(type_b, name, age, create_one())
+        n_res = l_res[3]
+    
+        assert res in n_res
+        if n_res != '500':
+>           assert type_b in l_res[0]
+E           AssertionError: assert 'BROWN' in 'POLAR'
+
+tests_script.py:137: AssertionError
+----------------------------- Captured stdout call -----------------------------
+parametr_ecxpect:  BROWN  << == >> parametr_fuct: POLAR
+parametr_ecxpect:  MIHAIL  << == >> parametr_fuct: mihail
+parametr_ecxpect:  17.5  << == >> parametr_fuct: 17.5
+parametrs fron testing objekt : ['POLAR', 'mihail', 17.5, '200']
+_______________________ test_update[POLAR-mihail-10-200] _______________________
+
+type_b = 'POLAR', name = 'mihail', age = 10, res = '200'
+
+    @pytest.mark.parametrize("type_b , name, age, res",
+                             [
+                                 ('BROWN', 'mihail', 17.5, '200'),
+                                 ('POLAR', 'Change_Name', 17.5, '200'),
+                                 ('POLAR', 'mihail', 10, '200'),
+                             ]
+                             )
+    def test_update(type_b, name, age, res):
+        l_res = update(type_b, name, age, create_one())
+        n_res = l_res[3]
+    
+        assert res in n_res
+        if n_res != '500':
+            assert type_b in l_res[0]
+            assert name in l_res[1]
+>           assert age == l_res[2]
+E           assert 10 == 17.5
+
+tests_script.py:139: AssertionError
+----------------------------- Captured stdout call -----------------------------
+parametr_ecxpect:  POLAR  << == >> parametr_fuct: POLAR
+parametr_ecxpect:  MIHAIL  << == >> parametr_fuct: mihail
+parametr_ecxpect:  10  << == >> parametr_fuct: 17.5
+parametrs fron testing objekt : ['POLAR', 'mihail', 17.5, '200']
+=============================== warnings summary ===============================
+/usr/lib/python3/dist-packages/urllib3/util/selectors.py:14
+  /usr/lib/python3/dist-packages/urllib3/util/selectors.py:14: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+    from collections import namedtuple, Mapping
+
+/usr/lib/python3/dist-packages/urllib3/_collections.py:2
+  /usr/lib/python3/dist-packages/urllib3/_collections.py:2: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+    from collections import Mapping, MutableMapping
+
+tests_script.py::test_dellete_one
+  /usr/lib/python3/dist-packages/requests/models.py:177: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+    if isinstance(hook, collections.Callable):
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+=========================== short test summary info ============================
+FAILED tests_script.py::test_create[GUMMY-mihail-17.5-200] - AssertionError: ...
+FAILED tests_script.py::test_create[BROWN--17.5-500] - AssertionError: assert...
+FAILED tests_script.py::test_create[BLACK-mihail-200-500] - AssertionError: a...
+FAILED tests_script.py::test_update[BROWN-mihail-17.5-200] - AssertionError: ...
+FAILED tests_script.py::test_update[POLAR-mihail-10-200] - assert 10 == 17.5
+=================== 5 failed, 15 passed, 3 warnings in 0.23s ===================
